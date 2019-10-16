@@ -9,7 +9,7 @@
           <img src="<?php echo base_url() ?>assets/dist/img/user8-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Yoga Aditya Maulana</p>
+          <p><?php echo $this->session->userdata('user_login'); ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -29,7 +29,7 @@
         <li class="header">MAIN NAVIGATION</li>
 
         <li>
-          <a href="<?php echo base_url('coba/kriteria') ?>">
+          <a href="<?php echo base_url('coba/dashboard') ?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -44,12 +44,12 @@
           </a>
         </li>
         <li >
-          <a href="<?php echo base_url('coba/kriteria') ?>">
-            <i class="fa fa-sitemap"></i> <span>Page Not Found</span>
+          <a href="<?php echo base_url('coba/penilai') ?>">
+            <i class="fa fa-sitemap"></i> <span>Data Penduduk & Kriteria</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="<?php echo base_url('coba/penilai') ?>">
             <i class="fa fa-refresh"></i> <span>Proses & Hasil</span>
           </a>
         </li>
@@ -59,7 +59,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="<?php echo base_url ('coba/login') ?>">
             <i class="fa fa-sign-out"></i> <span>Logout</span>
           </a>
         </li>

@@ -11,7 +11,7 @@
   </section>
 
   <section class="content">
-   <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i>Tambah Penduduk</button>
+   <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i>Tambah Penduduk </button>
    <br>
    <br>
    <table class="table table-striped table-bordered table-hover" >
@@ -65,7 +65,9 @@
         </button>
       </div>
       <div class="modal-body">
+        
         <form method="post" action="<?php echo site_url('coba/penduduk/add'); ?>">
+
          <div class="form-group">
           <label>Nama Penduduk</label>
           <input type="varchar" name="nama" class="form-control">

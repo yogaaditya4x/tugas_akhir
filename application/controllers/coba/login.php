@@ -1,44 +1,34 @@
-<?php 
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller{
- 
-	function __construct(){
-		parent::__construct();		
-		$this->load->model('m_login');
- 
-	}
- 
-	function index(){
+class Login extends CI_Controller {
+
+	public function index()
+	{
 		$this->load->view('coba/v_login');
 	}
- 
-	function aksi_login(){
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$where = array(
-			'username' => $username,
-			'password' => md5($password)
-			);
-		$cek = $this->m_login->cek_login("coba/login",$where)->num_rows();
-		if($cek > 0){
- 
-			$data_session = array(
-				'nama' => $username,
-				'status' => "login"
-				);
- 
-			$this->session->set_userdata($data_session);
- 
-			redirect(base_url("coba/login"));
- 
-		}else{
-			echo "Username dan password salah !";
+
+	public function ceklogin(){
+		if(isset($_POST['login'])){
+			$username	= $this->input->post('user',true);
+			$password	= $this->input->post('pass',true);
+			$cek 	= $this->m_login->proseslogin($username,$password);
+			$hasil	= count($cek);
+			if ($hasil > 0){
+				
+				$this->session->set_userdata('user_login', $username);
+				redirect('coba/dashboard');
+
+				// echo "masuk";
+			}else{
+				redirect('coba/login');
+				// echo "mati";
+			}
+
 		}
 	}
- 
-	function logout(){
-		$this->session->sess_destroy();
-		redirect(base_url('login'));
-	}
+
 }
- ?>
+
+/* End of file login.php */
+/* Location: ./application/controllers/coba/login.php */
